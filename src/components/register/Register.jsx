@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import './Login.css'
 
 function Register() {
+  const navigate = useNavigate();
     const [name,setName] = useState("")
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
@@ -22,7 +23,10 @@ function Register() {
             },
         })
         .then((res)=>res.json())
-        .then((item)=>console.log(item))
+        .then((item)=>{
+          // console.log(item)
+          navigate('/login')
+        })
         .catch((err)=>console.log(err.message))
     }
 
