@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import '../../components/register/Login.css'
 import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
 
 function Signin() {
   const navigate = useNavigate();
@@ -32,18 +31,29 @@ function Signin() {
     .catch((err)=>console.log(err.message))
 }
 
+const validateEmail = (mail) => {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+   {
+     return (true)
+   }
+     return (false)
+ }
 
 const handleAxios=(e)=>{
   e.preventDefault();
+  validateEmail(email) ?
   axios.post('https://student-auth.vercel.app/login',{email:email,password:password})
   .then((res)=>res.data)
   .then((item)=>{
     item=="Success" ? navigate('/')
     :
-    console.log("incorrect")
     alert("something went wrong")
   })
+  :
+  alert("Invalid mail format")
 }
+
+
 
 
   return (
@@ -53,7 +63,7 @@ const handleAxios=(e)=>{
   <form className="form">
     <div className="input-group">
       <label htmlFor="username">Email</label>
-      <input type="text" name="email" id="username" onChange={(e)=>setEmail(e.target.value)} placeholder="" />
+      <input type="text" name="email" id="username" onChange={(e)=>{setEmail(e.target.value)}} placeholder="" />
     </div>
     <div className="input-group">
       <label htmlFor="password">Password</label>
