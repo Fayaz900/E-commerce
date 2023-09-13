@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../components/login/Login.css'
+import '../../components/register/Login.css'
 import { Link } from 'react-router-dom'
 
 function Signin() {

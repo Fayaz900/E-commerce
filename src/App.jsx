@@ -6,7 +6,7 @@ import Products from './components/products/Products'
 import Cart from './components/cart/Cart'
 import Contact from './components/contact/Contact'
 import Home from './components/home/Home'
-import Login from './components/login/Register'
+import Login from './components/register/Register'
 import Signin from './components/signin/Signin'
 
 function App() {

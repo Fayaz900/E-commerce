@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './Login.css'
 
 function Register() {
+    const [name,setName] = useState("")
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
 
@@ -12,6 +13,7 @@ function Register() {
         fetch('https://student-auth.vercel.app/register',{
             method:"POST",
             body: JSON.stringify({
+                name:name,
                 email:email,
                 password:password,
             }),
@@ -29,6 +31,10 @@ function Register() {
         <div className="form-container">
   <p className="title">Register</p>
   <form className="form">
+  <div className="input-group">
+      <label htmlFor="username">Name</label>
+      <input type="text" name="name" id="name" onChange={(e)=>setName(e.target.value)} placeholder="" />
+    </div>
     <div className="input-group">
       <label htmlFor="username">Email</label>
       <input type="text" name="email" id="username" onChange={(e)=>setEmail(e.target.value)} placeholder="" />
