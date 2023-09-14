@@ -13,13 +13,13 @@ function App() {
 
   return (
       <Routes>
-        <Route path='/' element={<Navbar/>} >
-        <Route path='/signup' index element={<Login/>}/>
-        <Route path='/login' index element={<Signin/>}/>
-          <Route path='/' index element={<Home/>}/>
-          <Route path='/products' element={<Products/>}/>
-          <Route path='/cart' element={<Cart/>}/>
-          <Route path='/contact' element={<Contact/>}/>
+        <Route path='/signup' element={<Login/>}/>
+        <Route path='/' element={<Signin/>}/>
+        <Route element={<Navbar/>} >
+              <Route path='/home' element={<Home/>}/>
+              <Route path='/products' element={<Products/>}/>
+              <Route path='/cart' element={<Cart/>}/>
+              <Route path='/contact' element={<Contact/>}/>
         </Route>
       </Routes>
   )

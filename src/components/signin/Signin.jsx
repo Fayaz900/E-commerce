@@ -45,7 +45,7 @@ const handleAxios=(e)=>{
   axios.post('https://student-auth.vercel.app/login',{email:email,password:password})
   .then((res)=>res.data)
   .then((item)=>{
-    item=="Success" ? navigate('/')
+    item=="Success" ? navigate('/home')
     :
     alert("something went wrong")
   })
